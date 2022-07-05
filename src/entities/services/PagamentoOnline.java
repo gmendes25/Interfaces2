@@ -1,7 +1,8 @@
 package entities.services;
 
 public interface PagamentoOnline {
-	public double TaxaDeParcelamento();
-	public double TaxaDePagamento();
-	
+	// AtualizaçãoDaInterface
+	public double TaxaDeParcelamento(Double valor, int parcelas);
+
+	public double TaxaDePagamento(Double valor);
 }

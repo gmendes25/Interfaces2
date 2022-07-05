@@ -16,9 +16,9 @@ public class Curso {
 	public static void main(String[] args) throws ParseException {
 
 		Locale.setDefault(Locale.US);
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		// DataCorrigida-"YYYY"
 		Scanner sc = new Scanner(System.in);
-
 		System.out.println("Número de contrato: ");
 		int numero = sc.nextInt();
 		System.out.println("Data do contrato: ");
@@ -29,11 +29,11 @@ public class Curso {
 		int parcela = sc.nextInt();
 
 		Contrato contract = new Contrato(numero, data, valor);
-		
+
 		CalculoDeParcelamento cp = new CalculoDeParcelamento(new TaxasPaypal());
-		
+
 		cp.processParc(contract, parcela);
-		
+
 		for (Parcelamento p : contract.getParcelamento()) {
 			System.out.println(p);
 		}

@@ -17,13 +17,13 @@ public class CalculoDeParcelamento {
 	public void processParc(Contrato contract, int parcelas) {
 		double p = contract.getValue() / parcelas;
 		for (int i = 1; i <= parcelas; i++) {
-			double pvalue = p + p * (tax.TaxaDeParcelamento() * i);
-			double tpvalue = pvalue + pvalue * tax.TaxaDePagamento();
+			double pvalue = p + tax.TaxaDeParcelamento(p, parcelas) * i;
+			double tpvalue = pvalue + tax.TaxaDePagamento(pvalue);
 			Date dates = addMonth(contract.getDate(), i);
 			contract.getParcelamento().add(new Parcelamento(dates, tpvalue));
 		}
 	}
-	
+
 	private Date addMonth(Date data, int N) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(data);

@@ -5,11 +5,11 @@ import java.util.Date;
 import java.util.List;
 
 public class Contrato {
-	
+
 	private Integer numero;
 	private Date date;
 	private Double value;
-	
+
 	List<Parcelamento> parcelamento = new ArrayList<>();
 
 	public Contrato(Integer numero, Date date, Double value) {
@@ -17,13 +17,15 @@ public class Contrato {
 		this.date = date;
 		this.value = value;
 	}
-	
-	public void addParc(Parcelamento parc){
+
+	public void addParc(Parcelamento parc) {
 		parcelamento.add(parc);
 	}
+
 	public void removeParc(Parcelamento parc) {
 		parcelamento.remove(parc);
 	}
+
 	public List<Parcelamento> getParcelamento() {
 		return parcelamento;
 	}
@@ -51,5 +53,5 @@ public class Contrato {
 	public void setValue(Double value) {
 		this.value = value;
 	}
-	
+
 }
